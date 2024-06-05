@@ -1,10 +1,13 @@
 import serial
+
 nome_arquivo = "pedidos_ajuda.txt"
 pedidosAjuda = 0
-with open(nome_arquivo, "w") as arquivo:
-    arquivo.write(str(pedidosAjuda))
+batimentosCardiacos = 0
 
-porta = "COM9" 
+with open(nome_arquivo, "w") as arquivo:
+    arquivo.write(f"{pedidosAjuda},{batimentosCardiacos}")
+
+porta = "COM7"
 velocidade = 9600
 
 conexao = serial.Serial(porta, velocidade)
@@ -16,12 +19,17 @@ try:
             if dado == "c":
                 pedidosAjuda += 1
                 with open(nome_arquivo, "w") as arquivo:
-                    arquivo.write(str(pedidosAjuda))
+                    arquivo.write(f"{pedidosAjuda},{batimentosCardiacos}")
                 if pedidosAjuda == 1:
                     print(f"O aluno pediu ajuda {pedidosAjuda} vez!")
-                else:print(f"O aluno pediu ajuda {pedidosAjuda} vezes!")
+                else:
+                    print(f"O aluno pediu ajuda {pedidosAjuda} vezes!")
 
-
+        # Simule a leitura dos batimentos cardíacos (substitua pela leitura real)
+        # Aqui, estou apenas incrementando um valor fictício para demonstração
+        batimentosCardiacos += 1
+        with open(nome_arquivo, "w") as arquivo:
+            arquivo.write(f"{pedidosAjuda},{batimentosCardiacos}")
 
 except KeyboardInterrupt:
     print("\nPrograma encerrado pelo usuário.")

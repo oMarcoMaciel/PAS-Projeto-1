@@ -3,17 +3,14 @@
 // Pin do PulseSensor
 const int pulsePin = A0; // Use a entrada analógica A0
 
-const int botaoPin = 2; 
-
-int contador = 0; 
-int ultimoStatusBotao = HIGH;
-
 // Criação de um objeto PulseSensor
 PulseSensorPlayground pulseSensor;
 
+int pedidosAjuda = 0;
+const char* nome_arquivo = "pedidos_ajuda.txt";
+
 void setup() {
-  pinMode(botaoPin, INPUT_PULLUP); 
-  Serial.begin(9600);
+  Serial.begin(9600); // Inicializa a comunicação serial
 
   // Configurações do PulseSensor
   pulseSensor.analogInput(pulsePin);
@@ -27,30 +24,36 @@ void setup() {
 }
 
 void loop() {
-  int leitura = digitalRead(botaoPin); 
-  int myBPM = pulseSensor.getBeatsPerMinute(); // Obtém a frequência cardíaca
-  
-  if (pulseSensor.sawStartOfBeat()) { // Se um batimento foi detectado
+  // Leitura do botão
+  if (Serial.available() > 0) {
+    char dado = Serial.read();
+    if (dado == 'c') {
+      pedidosAjuda++;
+      Serial.print("O aluno pediu ajuda ");
+      Serial.print(pedidosAjuda);
+      Serial.println(pedidosAjuda == 1 ? " vez!" : " vezes!");
+      // Atualiza o arquivo
+      atualizarArquivo();
+    }
+  }
+
+  // Leitura do batimento cardíaco
+  int myBPM = pulseSensor.getBeatsPerMinute();
+  if (pulseSensor.sawStartOfBeat()) {
     Serial.print("Batimentos por minuto: ");
     Serial.println(myBPM);
   }
-
-  if (leitura != ultimoStatusBotao) {
-    delay(50); 
-    leitura = digitalRead(botaoPin); 
-  }
-
-  if (leitura == LOW && ultimoStatusBotao == HIGH) {
-    contador++; 
-    Serial.print("Quantidade de cliques: ");
-    Serial.println(contador);
-  }
-
-  ultimoStatusBotao = leitura; 
-
+  
   delay(1000); // Aguarda 1 segundo entre leituras
-  // PRECISA DAR UM JEITO NESSE DELAY
-
 }
 
-
+void atualizarArquivo() {
+  // Atualiza o arquivo com o número de pedidos de ajuda
+  File arquivo = SD.open(nome_arquivo, FILE_WRITE);
+  if (arquivo) {
+    arquivo.println(pedidosAjuda);
+    arquivo.close();
+  } else {
+    Serial.println("Erro ao abrir o arquivo.");
+  }
+}
