@@ -1,59 +1,32 @@
-#include <PulseSensorPlayground.h>
+// Definição dos pinos
+const int pulsePin = A0;   // Pino do sensor de batimento cardíaco
+const int buttonPin = 2;   // Pino do botão
 
-// Pin do PulseSensor
-const int pulsePin = A0; // Use a entrada analógica A0
-
-// Criação de um objeto PulseSensor
-PulseSensorPlayground pulseSensor;
-
-int pedidosAjuda = 0;
-const char* nome_arquivo = "pedidos_ajuda.txt";
+// Variáveis
+int pulseValue = 0;        // Valor lido do sensor de batimento cardíaco
+int buttonState = 0;       // Estado do botão
 
 void setup() {
-  Serial.begin(9600); // Inicializa a comunicação serial
-
-  // Configurações do PulseSensor
-  pulseSensor.analogInput(pulsePin);
-  pulseSensor.setThreshold(550); // Define o limiar para detectar um batimento
+  // Inicializa a comunicação serial
+  Serial.begin(9600);
   
-  if (pulseSensor.begin()) {
-    Serial.println("PulseSensor iniciado com sucesso!");
-  } else {
-    Serial.println("Erro ao iniciar o PulseSensor.");
-  }
+  // Configura os pinos
+  pinMode(pulsePin, INPUT);
+  pinMode(buttonPin, INPUT_PULLUP); // Usa o resistor pull-up interno do Arduino
 }
 
 void loop() {
-  // Leitura do botão
-  if (Serial.available() > 0) {
-    char dado = Serial.read();
-    if (dado == 'c') {
-      pedidosAjuda++;
-      Serial.print("O aluno pediu ajuda ");
-      Serial.print(pedidosAjuda);
-      Serial.println(pedidosAjuda == 1 ? " vez!" : " vezes!");
-      // Atualiza o arquivo
-      atualizarArquivo();
-    }
-  }
-
-  // Leitura do batimento cardíaco
-  int myBPM = pulseSensor.getBeatsPerMinute();
-  if (pulseSensor.sawStartOfBeat()) {
-    Serial.print("Batimentos por minuto: ");
-    Serial.println(myBPM);
-  }
+  // Lê o valor do sensor de batimento cardíaco
+  pulseValue = analogRead(pulsePin);
   
-  delay(1000); // Aguarda 1 segundo entre leituras
-}
+  // Lê o estado do botão
+  buttonState = digitalRead(buttonPin);
 
-void atualizarArquivo() {
-  // Atualiza o arquivo com o número de pedidos de ajuda
-  File arquivo = SD.open(nome_arquivo, FILE_WRITE);
-  if (arquivo) {
-    arquivo.println(pedidosAjuda);
-    arquivo.close();
-  } else {
-    Serial.println("Erro ao abrir o arquivo.");
-  }
+  // Envia os dados via serial no formato: "pulseValue,buttonState"
+  Serial.print(pulseValue);
+  Serial.print(",");
+  Serial.println(buttonState);
+
+  // Pequena pausa para estabilidade da leitura
+  delay(100);
 }

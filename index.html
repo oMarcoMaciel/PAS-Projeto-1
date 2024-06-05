@@ -35,7 +35,9 @@
             try {
                 const resposta = await fetch('pedidos_ajuda.txt');
                 const texto = await resposta.text();
-                const [pedidosAjuda, batimentosCardiacos] = texto.split(',');
+                const linhas = texto.trim().split('\n');
+                const ultimaLinha = linhas[linhas.length - 1];
+                const [pedidosAjuda, batimentosCardiacos] = ultimaLinha.split(',');
                 document.getElementById('contador').textContent = `Pedidos de ajuda: ${pedidosAjuda}`;
                 document.getElementById('batimentos').textContent = `Batimentos cardíacos: ${batimentosCardiacos}`;
             } catch (erro) {
@@ -45,8 +47,9 @@
             }
         }
 
-        // Chama a função ao carregar a página
+        // Chama a função ao carregar a página e a cada 5 segundos
         carregarContador();
+        setInterval(carregarContador, 5000);
     </script>
 </body>
 </html>
