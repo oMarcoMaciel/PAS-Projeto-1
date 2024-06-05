@@ -51,3 +51,5 @@ Contador de Pressionamentos,Batimentos por Minuto (BPM)
 21,516
 21,522
 21,518
+21,513
+21,473
