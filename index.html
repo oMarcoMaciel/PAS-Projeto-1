@@ -49,8 +49,8 @@
                     <tr>
                         <td>Felipe Ribeiro Costa</td>
                         <td>2</td>
-                        <td class="regular">Regular</td>
-                        <td class="bpm">82</td>
+                        <td class="regular"><p id="contador">Carregando...</p></td>
+                        <td class="bpm"><p id="batimentos">Batimentos cardíacos: Carregando...</p></td>
                     </tr>
                 </tbody>
             </table>
@@ -58,10 +58,33 @@
                 <p>Total: <span>10</span></p>
             </div>
         </section>
+    <script>
+        // Função para carregar o valor do arquivo
+        async function carregarContador() {
+            try {
+                const resposta = await fetch('pedidos_ajuda.txt');
+                const texto = await resposta.text();
+                const linhas = texto.trim().split('\n');
+                const ultimaLinha = linhas[linhas.length - 1];
+                const [pedidosAjuda, batimentosCardiacos] = ultimaLinha.split(',');
+                document.getElementById('contador').textContent = `Pedidos de ajuda: ${pedidosAjuda}`;
+                document.getElementById('batimentos').textContent = `Batimentos cardíacos: ${batimentosCardiacos}`;
+            } catch (erro) {
+                console.error('Erro ao carregar o contador:', erro);
+                document.getElementById('contador').textContent = 'Erro ao carregar o contador.';
+                document.getElementById('batimentos').textContent = 'Erro ao carregar os batimentos cardíacos.';
+            }
+        }
+
+        // Chama a função ao carregar a página e a cada 5 segundos
+        carregarContador();
+        setInterval(carregarContador, 5000);
+    </script>
     </main>
     <footer>
         <button><i class="fa-solid fa-print"></i> Imprimir</button>
     </footer>
+
 </body>
 </html>
 
