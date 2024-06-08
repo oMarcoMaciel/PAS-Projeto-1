@@ -41,8 +41,8 @@
                     <tr>
                         <th>Nome</th>
                         <th>Grau</th>
-                        <th>Estado</th>
                         <th>BPMs</th>
+                        <th>Pedidos de Ajuda</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -66,9 +66,9 @@
                 const texto = await resposta.text();
                 const linhas = texto.trim().split('\n');
                 const ultimaLinha = linhas[linhas.length - 1];
-                const [pedidosAjuda, batimentosCardiacos] = ultimaLinha.split(',');
-                document.getElementById('contador').textContent = `Pedidos de ajuda: ${pedidosAjuda}`;
-                document.getElementById('batimentos').textContent = `Batimentos cardíacos: ${batimentosCardiacos}`;
+                const [batimentosCardiacos, pedidosAjuda] = ultimaLinha.split(',');
+                document.getElementById('batimentos').textContent = `${batimentosCardiacos}`;
+                document.getElementById('contador').textContent = `${pedidosAjuda}`;
             } catch (erro) {
                 console.error('Erro ao carregar o contador:', erro);
                 document.getElementById('contador').textContent = 'Erro ao carregar o contador.';

@@ -1,2 +1,2 @@
 Contador de Pressionamentos,Batimentos por Minuto (BPM)
-3,32
+5,150
