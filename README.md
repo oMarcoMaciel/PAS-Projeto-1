@@ -1,7 +1,7 @@
 # PAS-Projeto
 
 ## Introdução
-A Pulseira de Assistência Sensorial (PAS) é um dispositivo desenvolvido em Arduino para auxiliar crianças autistas. Ele monitora a frequência cardíaca da criança e possui um botão para situações de crise. Este guia fornecerá todas as informações necessárias para montar, programar e utilizar a PAS.
+A Pulseira de Assistência Sensorial (PAS) é um dispositivo desenvolvido em Arduino para auxiliar crianças com TEA. Ele monitora a frequência cardíaca da criança e possui um botão para situações de crise. Este guia fornecerá todas as informações necessárias para montar, programar e utilizar a PAS.
 
 ## Conteúdo
 
@@ -21,19 +21,23 @@ Para montar a PAS, você precisará dos seguintes componentes:
 - 1 Botão Push-Button
 - Fios Jumpers
 - 1 Protoboard
+- 1 LED
 
 ## Montagem do Hardware
 
 1. **Conecte o Sensor de Frequência Cardíaca**:
     - Conecte o fio vermelho do sensor ao pino 5V do Arduino.
     - Conecte o fio preto do sensor ao pino GND do Arduino.
-    - Conecte o fio púrpura (sinal) ao pino A0 do Arduino.
+    - Conecte o fio roxo (sinal) ao pino A0 do Arduino.
 
 2. **Conecte o Botão**:
     - Conecte um terminal do botão ao pino digital 2 do Arduino.
-    - Conecte o outro terminal a um dos terminais do resistor.
-    - Conecte o outro terminal do resistor ao GND do Arduino.
+    - Conecte o outro terminal ao GND do Arduino.
     - Conecte o terminal que foi conectado ao pino digital 2 ao 5V através de um fio jumper.
+
+3. **Conecte o LED**:
+   - Conecte um terminal do LED ao pino digital 3 do Arduino.
+   - Conecte o outro terminal do LED ao GND do Arduino.
 
 ## Instalação do Software
 
