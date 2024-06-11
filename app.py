@@ -2,7 +2,7 @@ import serial
 import time
 
 # Configuração da porta serial (ajuste conforme necessário)
-arduino_port = 'COM7'  # Substitua 'COM7' pela porta correta
+arduino_port = 'COM9'  # Substitua 'COM7' pela porta correta
 baud_rate = 9600
 
 # Inicializa a comunicação serial
