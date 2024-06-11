@@ -33,15 +33,15 @@ Para montar a PAS, você precisará dos seguintes componentes:
 
 ## Montagem do Hardware
 
-1. **Conecte o Sensor de Frequência Cardíaca**:
-    - Conecte o fio vermelho do sensor ao pino 5V do Arduino.
-    - Conecte o fio preto do sensor ao pino GND do Arduino.
-    - Conecte o fio roxo (sinal) ao pino A0 do Arduino.
-
-2. **Conecte o Botão**:
+1. **Conecte o Botão**:
     - Conecte um terminal do botão ao pino digital 2 do Arduino.
     - Conecte o outro terminal ao GND do Arduino.
     - Conecte o terminal que foi conectado ao pino digital 2 ao 5V através de um fio jumper.
+
+2. **Conecte o Sensor de Frequência Cardíaca**:
+    - Conecte o fio vermelho do sensor ao pino 5V do Arduino.
+    - Conecte o fio preto do sensor ao pino GND do Arduino.
+    - Conecte o fio roxo (sinal) ao pino A0 do Arduino.
 
 3. **Conecte o LED**:
    - Conecte um terminal do LED ao pino digital 3 do Arduino.
@@ -63,6 +63,7 @@ Para montar a PAS, você precisará dos seguintes componentes:
       ```sh
       pip install pyserial
       ```
+      
 ## Configuração do Software
     
 1. **Código Python para Receber Dados via Serial**
