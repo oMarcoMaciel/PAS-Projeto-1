@@ -69,7 +69,7 @@ Para montar a PAS, você precisará dos seguintes componentes:
 
 - Crie um arquivo Python chamado [app.py](https://github.com/oMarcoMaciel/PAS-Projeto-1/blob/main/app.py) com o conteúdo para ler os dados do Arduino:
 
-- Crie Arquivo TXT [pedidos_ajuda.txt](https://github.com/oMarcoMaciel/PAS-Projeto-1/blob/main/pedidos_ajuda.txt) para Conexão com Site 
+- Crie um arquivo TXT chamado [pedidos_ajuda.txt](https://github.com/oMarcoMaciel/PAS-Projeto-1/blob/main/pedidos_ajuda.txt) para conexão com o site 
 
 2. **Arquivos HTML e CSS**
 
