@@ -5,12 +5,20 @@ A Pulseira de Assistência Sensorial (PAS) é um dispositivo desenvolvido em Ard
 
 ## Conteúdo
 
+- [Como Usar](#como-usar)
 - [Componentes Necessários](#componentes-necess%C3%A1rios)
 - [Montagem do Hardware](#montagem-do-hardware)
 - [Instalação do Software](#instala%C3%A7%C3%A3o-do-software)
+- [Configuração do Software](#configuração-do-software)
 - [Programação do Arduino](#programa%C3%A7%C3%A3o-do-arduino)
-- [Como Usar](#como-usar)
 - [Manutenção](#manuten%C3%A7%C3%A3o)
+
+## Como Usar
+
+1. **Coloque a pulseira na criança**: Certifique-se de que o sensor de frequência cardíaca esteja bem posicionado no pulso da criança.
+2. **Conecte-se ao site**: Abra o site pelo seu navegador.
+3. **Monitoramento**: O dispositivo começará a monitorar a frequência cardíaca automaticamente.
+4. **Visualização no Site**: Se a criança pressionar o botão, será mostrado no site, para um profissional ir direto ao auxílio.
 
 ## Componentes Necessários
 
@@ -55,7 +63,20 @@ Para montar a PAS, você precisará dos seguintes componentes:
       ```sh
       pip install pyserial
       ```
+## Configuração do Software
+    
+1. **Código Python para Receber Dados via Serial**
 
+- Crie um arquivo Python chamado [app.py](https://github.com/oMarcoMaciel/PAS-Projeto-1/blob/main/app.py) com o conteúdo para ler os dados do Arduino:
+
+- Crie Arquivo TXT [pedidos_ajuda.txt](https://github.com/oMarcoMaciel/PAS-Projeto-1/blob/main/pedidos_ajuda.txt) para Conexão com Site 
+
+2. **Arquivos HTML e CSS**
+
+- Crie um arquivo chamado [index.html](https://github.com/oMarcoMaciel/PAS-Projeto-1/blob/main/index.html) com o conteúdo para a interface web:
+
+- Crie um arquivo chamado [styles.css](https://github.com/oMarcoMaciel/PAS-Projeto-1/blob/main/styles.css) com o conteúdo para a estilização:
+  
 ## Programação do Arduino
 
 1. **Abra a IDE do Arduino**.
@@ -67,29 +88,10 @@ Para montar a PAS, você precisará dos seguintes componentes:
     - Selecione a porta correta em `Tools` > `Port`.
     - Clique em `Upload`.
 
-## Como Usar
-
-1. **Coloque a pulseira na criança**: Certifique-se de que o sensor de frequência cardíaca esteja bem posicionado no pulso da criança.
-2. **Conecte-se ao site**: Abra o site pelo seu navegador.
-3. **Monitoramento**: O dispositivo começará a monitorar a frequência cardíaca automaticamente.
-4. **Visualização no Site**: Se a criança pressionar o botão, será mostrado no site, para um profissional ir direto ao auxílio.
-
 ## Manutenção
 
 - **Verificação de Conexões**: Inspecione as conexões de fios e componentes periodicamente para garantir que estejam firmes e seguras.
 - **Atualizações de Software**: Verifique por atualizações de código e bibliotecas periodicamente para garantir o melhor desempenho do dispositivo.
-
-## Código Python para Receber Dados via Serial
-
-Crie um arquivo Python chamado [app.py](https://github.com/oMarcoMaciel/PAS-Projeto-1/blob/main/app.py) com o conteúdo para ler os dados do Arduino:
-
-## Crie Arquivo TXT [pedidos_ajuda.txt](https://github.com/oMarcoMaciel/PAS-Projeto-1/blob/main/pedidos_ajuda.txt) para Conexão com Site 
-
-## Arquivos HTML e CSS
-
-Crie um arquivo chamado [index.html](https://github.com/oMarcoMaciel/PAS-Projeto-1/blob/main/index.html) com o conteúdo para a interface web:
-
-Crie um arquivo chamado [styles.css](https://github.com/oMarcoMaciel/PAS-Projeto-1/blob/main/styles.css) com o conteúdo para a estilização:
 
 ---
 
