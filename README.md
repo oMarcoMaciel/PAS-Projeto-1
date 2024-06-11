@@ -27,7 +27,7 @@ Para montar a PAS, você precisará dos seguintes componentes:
 - 1 Arduino Uno
 - 1 Sensor de Frequência Cardíaca (ex: Pulse Sensor)
 - 1 Botão Push-Button
-- Fios Jumpers
+- 4 Fios Jumpers
 - 1 Protoboard
 - 1 LED
 
@@ -67,21 +67,21 @@ Para montar a PAS, você precisará dos seguintes componentes:
     
 1. **Código Python para Receber Dados via Serial**
 
-- Crie um arquivo Python chamado [app.py](https://github.com/oMarcoMaciel/PAS-Projeto-1/blob/main/app.py) com o conteúdo para ler os dados do Arduino:
+- Crie um arquivo Python chamado [app.py](https://github.com/oMarcoMaciel/PAS-Projeto-1/blob/main/app.py) com o conteúdo para ler os dados do Arduino.
 
-- Crie um arquivo TXT chamado [pedidos_ajuda.txt](https://github.com/oMarcoMaciel/PAS-Projeto-1/blob/main/pedidos_ajuda.txt) para conexão com o site 
+- Crie um arquivo TXT chamado [pedidos_ajuda.txt](https://github.com/oMarcoMaciel/PAS-Projeto-1/blob/main/pedidos_ajuda.txt) para conexão com o site.
 
 2. **Arquivos HTML e CSS**
 
-- Crie um arquivo chamado [index.html](https://github.com/oMarcoMaciel/PAS-Projeto-1/blob/main/index.html) com o conteúdo para a interface web:
+- Crie um arquivo chamado [index.html](https://github.com/oMarcoMaciel/PAS-Projeto-1/blob/main/index.html) com o conteúdo para a interface web.
 
-- Crie um arquivo chamado [styles.css](https://github.com/oMarcoMaciel/PAS-Projeto-1/blob/main/styles.css) com o conteúdo para a estilização:
+- Crie um arquivo chamado [styles.css](https://github.com/oMarcoMaciel/PAS-Projeto-1/blob/main/styles.css) com o conteúdo para a estilização.
   
 ## Programação do Arduino
 
 1. **Abra a IDE do Arduino**.
 2. **Carregue o código**:
-    - Copie e cole o código [PAS-Projeto-1.ino](https://github.com/oMarcoMaciel/PAS-Projeto-1/blob/main/PAS-Projeto-1.ino) na IDE do Arduino:
+    - Copie e cole o código [PAS-Projeto-1.ino](https://github.com/oMarcoMaciel/PAS-Projeto-1/blob/main/PAS-Projeto-1.ino) na IDE do Arduino.
 
 3. **Carregue o código no Arduino**:
     - Conecte o Arduino ao computador via USB.
